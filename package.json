@@ -1,0 +1,50 @@
+{
+  "name": "ng-repeat-infinity",
+  "version": "0.1.0",
+  "description": "Angular 1.x ng-repeat wrapper for airbnb infinity infinite and virtualized scroll behavior",
+  "main": "gulpfile.js",
+  "dependencies": {
+    "angular": "^1.4.5",
+    "gulp-sequence": "^0.4.1",
+    "infinity": "git+https://github.com/airbnb/infinity.git",
+    "jquery": "^2.1.4"
+  },
+  "devDependencies": {
+    "bootstrap": "^3.3.5",
+    "gulp": "^3.9.0",
+    "gulp-debug": "^2.1.0",
+    "gulp-npm-script-sync": "^1.0.2",
+    "gulp-replace": "^0.5.4",
+    "gulp-typescript": "^2.8.2",
+    "gulp-util": "^3.0.6",
+    "lodash": "^3.10.1",
+    "nconf": "^0.7.2",
+    "source-map-support": "^0.3.2",
+    "tsd": "^0.6.4",
+    "typescript": "^1.5.3",
+    "typescript-require": "^0.2.9"
+  },
+  "scripts": {
+    "default": "gulp default",
+    "watch": "gulp watch",
+    "typescript-compile": "gulp typescript-compile",
+    "typescript-compile-watch": "gulp typescript-compile-watch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/RobertjanTuit/ng-repeat-infinity.git"
+  },
+  "keywords": [
+    "angular",
+    "repeat",
+    "infinity",
+    "virtual",
+    "airbnb"
+  ],
+  "author": "Robertjan Tuit (Microsoft)",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/RobertjanTuit/ng-repeat-infinity/issues"
+  },
+  "homepage": "https://github.com/RobertjanTuit/ng-repeat-infinity#readme"
+}

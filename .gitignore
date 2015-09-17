@@ -1,0 +1,8 @@
+node_modules
+.ts_npm_cache
+.gulp.js
+tmp
+bin
+obj
+.vs
+*.user

@@ -1,0 +1,12 @@
+{
+    "compilerOptions": {
+        "target": "ES5",
+        "module": "amd",
+        "sourceMap": true,
+        "noImplicitAny": true,
+        "removeComments": false,
+        "noEmit": false,
+        "noResolve": false,
+        "watch": true
+    }
+}

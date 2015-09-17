@@ -1,0 +1,23 @@
+// Place your settings in this file to overwrite default and user settings.
+{
+  "files.exclude": {
+    "tmp": true,
+    "**/.git": true,
+    "**/.DS_Store": true,
+    "**/.ts_npm_cache": true,
+    ".vs": true,
+    "bin": true,
+    "obj": true,
+    "node_modules": true,
+    "**/.baseDir.ts": true,
+    "**/*.sln": true,
+    "**/*.csproj*": true,
+    "**/.git*": true,
+    "**/tsd.json": true,
+    "*/typings": true,
+    "*/.editorconfig": true,
+    "*/.rebracer.xml": true
+  },
+  "editor.insertSpaces": true,
+  "editor.tabSize": 2
+}

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html ng-app="testApp" lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap-theme.min.css">
+  <script src="../node_modules/jquery/dist/jquery.min.js"></script>
+  <script src="../node_modules/angular/angular.min.js"></script>
+  <script src="../node_modules/infinity/build/infinity.js"></script>
+  <script src="../dist/ng-repeat-infinity.js"></script>
+  <script>
+    var testApp = angular.module('testApp', [
+      'ng-repeat-infinity'
+    ]).controller("myController", function($scope){
+      $scope.items = [];
+      for(var i=0; i < 1000; i++)
+      {
+        $scope.items.push('Item Number'+i);
+      } 
+    });
+  </script>
+</head>
+
+<body ng-controller="myController">
+  Test app for ng-repeat-infinity
+  <ol style="height:100%;overflow: auto;">
+    <li ng-repeat-infinity="item in items">
+      {{ item }}
+    </li>
+  </ol>
+</body>
