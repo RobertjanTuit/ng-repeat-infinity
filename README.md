@@ -1,5 +1,6 @@
 # ng-repeat-infinity
-Geting started
+
+## Geting started
 Step 1 – Install Node.js
 Head on over to http://nodejs.org and click install – this should use magic to figure out what OS and version.
 
@@ -15,14 +16,13 @@ Other availeble gulp commands:
 - gulp watch
 
 
-How to developer test:
+## Develop:
 - Open test/index.debug.html in any browser.
 - Run 'gulp watch' in the project folder
 - Open visual studio code or your favorite editor and start editing!
 - Using live-reload or fefresh after auto build on save
 
-TODO
-
+## TODO
 Created locally, need to be added to DefinatelyTyped repo:
 - src/typings/infinity.d.ts
 - gulp/typings/gulp-livereload.d.ts
