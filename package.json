@@ -16,6 +16,7 @@
     "gulp-debug": "^2.1.0",
     "gulp-npm-script-sync": "^1.0.2",
     "gulp-replace": "^0.5.4",
+    "gulp-sourcemaps": "^1.5.2",
     "gulp-typescript": "^2.8.2",
     "gulp-util": "^3.0.6",
     "lodash": "^3.10.1",

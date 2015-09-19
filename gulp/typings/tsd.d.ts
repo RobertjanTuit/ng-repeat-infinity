@@ -13,3 +13,4 @@
 /// <reference path="gulp-replace/gulp-replace.d.ts" />
 /// <reference path="gulp-sequence/gulp-sequence.d.ts" />
 /// <reference path="gulp-livereload/gulp-livereload.d.ts" />
+/// <reference path="gulp-sourcemaps/gulp-sourcemaps.d.ts" />

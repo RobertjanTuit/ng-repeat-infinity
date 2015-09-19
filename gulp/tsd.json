@@ -40,6 +40,9 @@
     },
     "gulp-replace/gulp-replace.d.ts": {
       "commit": "5f480287834a2615274eea31574b713e64decf17"
+    },
+    "gulp-sourcemaps/gulp-sourcemaps.d.ts": {
+      "commit": "6f6e5c7dd9effe21fee14eb65fe340ecbbc8580a"
     }
   }
 }

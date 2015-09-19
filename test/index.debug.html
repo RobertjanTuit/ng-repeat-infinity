@@ -9,7 +9,9 @@
   <script src="../node_modules/jquery/dist/jquery.min.js"></script>
   <script src="../node_modules/angular/angular.min.js"></script>
   <script src="../node_modules/infinity/build/infinity.js"></script>
+  <script src="../dist/utils.js"></script>
   <script src="../dist/ng-repeat-infinity.js"></script>
+  <script src="http://localhost:35729/livereload.js"></script>
   <script>
     var testApp = angular.module('testApp', [
       'ng-repeat-infinity'
@@ -20,14 +22,25 @@
         $scope.items.push('Item Number'+i);
       } 
     });
+    $(document).ready(function() {
+      var since = 0;
+      $('#reloaded').html(since);
+      setInterval(function() {
+        since++;
+        $('#reloaded').html(since);
+      }, 1000)
+    })
   </script>
 </head>
 
-<body ng-controller="myController">
-  Test app for ng-repeat-infinity
+<body ng-controller="myController" class="container">
+  <h1>Test app for ng-repeat-infinity</h1>
+  <div class="small">Last reload: <span id='reloaded'></span> seconds ago.</div>
+  <br/>
+  <br/> List numbers test:
   <ol style="height:100%;overflow: auto;">
     <li ng-repeat-infinity="item in items">
-      {{ item }}
+      [{{ item }}]
     </li>
   </ol>
 </body>

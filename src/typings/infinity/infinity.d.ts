@@ -5,6 +5,7 @@ declare namespace infinity {
     lazy<T extends JQuery>(lazyItem: T): void;
     lazy<T extends string>(lazyItem: T): void;
     lazy<T>(lazyItem: ListItem<T>): void;
+    useElementScroll: boolean;
   }
   
   export class config {
