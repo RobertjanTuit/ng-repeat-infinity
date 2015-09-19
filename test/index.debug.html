@@ -13,11 +13,12 @@
   <script src="../dist/ng-repeat-infinity.js"></script>
   <script src="http://localhost:35729/livereload.js"></script>
   <script>
+    var rowCount = 10000;
     var testApp = angular.module('testApp', [
       'ng-repeat-infinity'
     ]).controller("myController", function($scope){
       $scope.items = [];
-      for(var i=0; i < 10000; i++)
+      for(var i=0; i < rowCount; i++)
       {
         $scope.items.push('Item Number'+i);
       } 
@@ -27,8 +28,10 @@
     setTimeout(function() {
       angular.element(document).ready(function() {
         angular.bootstrap(document, ['testApp']);
-        var elapsed = ((new Date()-start)/1000).toFixed(2);
+        var elapsedMs = (new Date()-start);
+        var elapsed = (elapsedMs/1000).toFixed(2);
         $('#elapsed').html(elapsed);
+        $('#elapsedper').html((elapsedMs/(rowCount/100)).toFixed());
       });    
     }, 500);
     
@@ -60,7 +63,7 @@
   <div class="content">
     <div class="small">Last reload: <span id='reloaded'></span> seconds ago.</div>
     <br/>
-    <div class="small">Angular app rendering 10000 rows took: <span id='elapsed'></span> seconds.</div>
+    <div class="small">Angular app rendering 10000 rows took: <span id='elapsed'></span> seconds. <span id='elapsedper'></span>ms per 100 rows</div>
     <br/>
     <br/> List numbers test:
     <ol style="height:100%;overflow: auto;">
