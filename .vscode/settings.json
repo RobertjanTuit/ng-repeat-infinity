@@ -1,7 +1,7 @@
 // Place your settings in this file to overwrite default and user settings.
 {
   "files.exclude": {
-    // "tmp": true,
+    "tmp": true,
     "**/.git": true,
     "**/.DS_Store": true,
     "**/.ts_npm_cache": true,
@@ -14,7 +14,7 @@
     "**/*.csproj*": true,
     "**/.git*": true,
     "**/tsd.json": true,
-    // "*/typings": true,
+    "*/typings": true,
     "*/.editorconfig": true,
     "*/.rebracer.xml": true
   },
