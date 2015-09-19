@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html ng-app="testApp" lang="en">
+<html lang="en">
 
 <head>
   <meta charset="utf-8">
@@ -17,30 +17,56 @@
       'ng-repeat-infinity'
     ]).controller("myController", function($scope){
       $scope.items = [];
-      for(var i=0; i < 1000; i++)
+      for(var i=0; i < 10000; i++)
       {
         $scope.items.push('Item Number'+i);
       } 
     });
+    
+    var start = new Date();
+    setTimeout(function() {
+      angular.element(document).ready(function() {
+        angular.bootstrap(document, ['testApp']);
+        var elapsed = ((new Date()-start)/1000).toFixed(2);
+        $('#elapsed').html(elapsed);
+      });    
+    }, 500);
+    
     $(document).ready(function() {
       var since = 0;
       $('#reloaded').html(since);
       setInterval(function() {
         since++;
         $('#reloaded').html(since);
+        $('.loading').hide();
+        $('.content').css('opacity', 1);
       }, 1000)
     })
   </script>
+
+  <style>
+    .content {
+      opacity: 0;
+    }
+  </style>
 </head>
 
 <body ng-controller="myController" class="container">
   <h1>Test app for ng-repeat-infinity</h1>
-  <div class="small">Last reload: <span id='reloaded'></span> seconds ago.</div>
-  <br/>
-  <br/> List numbers test:
-  <ol style="height:100%;overflow: auto;">
-    <li ng-repeat-infinity="item in items">
-      [{{ item }}]
-    </li>
-  </ol>
+  <a href="https://github.com/RobertjanTuit/ng-repeat-infinity" class="small" target="_blank">https://github.com/RobertjanTuit/ng-repeat-infinity</a>
+  <div class="loading">
+    <br/> Loading app with 10000 ng-repeat rows...
+  </div>
+  <div class="content">
+    <div class="small">Last reload: <span id='reloaded'></span> seconds ago.</div>
+    <br/>
+    <div class="small">Angular app rendering 10000 rows took: <span id='elapsed'></span> seconds.</div>
+    <br/>
+    <br/> List numbers test:
+    <ol style="height:100%;overflow: auto;">
+      <li ng-repeat-infinity="item in items">
+        <div>{{ item }}</div>
+      </li>
+    </ol>
+  </div>
 </body>
