@@ -6,6 +6,7 @@ import debug = require('gulp-debug');
 import replace = require('gulp-replace');
 import ts = require('gulp-typescript');
 import sequence = require('gulp-sequence');
+import livereload = require('gulp-livereload');
 
 export = (config) => {
   var scriptName = 'ng-repeat-infinity';
@@ -29,11 +30,13 @@ export = (config) => {
       .pipe(debug())
       .pipe(ts(tsProject)).js
       .pipe(replace(/\/\/\/ <reference path.*?\/>\s*/g, ''))
+      .pipe(livereload())
       .pipe(gulp.dest(config.output));
   });
 
   gulp.task('typescript-compile-watch', () => {
     gutil.log('Starting TS Project watch')
+    livereload.listen();
     return gulp.watch(typescriptGlob, ["typescript-compile"]);
   });
 };

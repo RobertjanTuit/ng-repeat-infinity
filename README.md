@@ -10,3 +10,13 @@ Now type ‘npm install -g gulp’ this will install Gulp.js globally on your sy
 
 Step 3:
 Run ‘gulp’ in the project folder to build the project
+
+Other availeble gulp commands:
+- gulp watch
+
+
+How to developer test:
+- Open test/index.debug.html in any browser.
+- Run 'gulp watch' in the project folder
+- Open visual studio code or your favorite editor and start editing!
+- Using live-reload or fefresh after auto build on save

@@ -14,6 +14,7 @@ var ngRepeatInfinity;
                 post: this.postLink.bind(this)
             };
             this.compile = this.unboundCompile.bind(this);
+            infinity.config.PAGE_TO_SCREEN_RATIO;
         }
         NgRepeatInfinity.prototype.unboundCompile = function ($el, $attr, transclude) {
             var expression = $attr.ngRepeatInfinity;
@@ -25,8 +26,10 @@ var ngRepeatInfinity;
             return new NgRepeatInfinity(this.$parse).link;
         };
         NgRepeatInfinity.prototype.preLink = function ($scope, $el, $attr) {
-            this.infinity = new infinity.ListView($el.parent(), {});
-            $el.after($(ngRepeatEndComment.cloneNode(false)));
+            this.infinity = new infinity.ListView($el.parent(), { lazy: function ($el) {
+                    // Do something to items thata were outside of the viewport and are now displayed...
+                } });
+            this.infinity.$el.after($(ngRepeatEndComment.cloneNode(false)));
         };
         NgRepeatInfinity.prototype.postLink = function ($scope, $el, $attr) {
         };

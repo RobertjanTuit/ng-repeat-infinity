@@ -1,6 +1,21 @@
 /// <reference path="../jquery/jquery.d.ts" />
 declare namespace infinity {
-  export class ListView {
+  
+  export interface Options<T> {
+    lazy<T extends JQuery>(lazyItem: T): void;
+    lazy<T extends string>(lazyItem: T): void;
+    lazy<T>(lazyItem: ListItem<T>): void;
+  }
+  
+  export class config {
+    public static PAGE_TO_SCREEN_RATIO: number // 3;
+    public static SCROLL_THROTTLE: number // 350;
+  }
+  
+  export class ListView<T extends JQuery|string> {
+    
+    $el: JQuery;
+    
     // ### Constructor
     //
     // Creates a new instance of a ListView.
@@ -9,7 +24,7 @@ declare namespace infinity {
     //
     // - `$el`: a jQuery element.
     // - `options`: an optional hash of options
-    constructor($el: JQuery, options: {});
+    constructor($el: JQuery, options: Options<T>);
     
     // ### append
     //
