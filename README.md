@@ -20,3 +20,11 @@ How to developer test:
 - Run 'gulp watch' in the project folder
 - Open visual studio code or your favorite editor and start editing!
 - Using live-reload or fefresh after auto build on save
+
+TODO
+
+Created locally, need to be added to DefinatelyTyped repo:
+- src/typings/infinity.d.ts
+- gulp/typings/gulp-livereload.d.ts
+- gulp/typings/gulp-debug.d.ts
+- gulp/typings/gulp-sequence.d.ts
