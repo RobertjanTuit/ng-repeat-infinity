@@ -20,7 +20,7 @@
       $scope.items = [];
       for(var i=0; i < rowCount; i++)
       {
-        $scope.items.push('Item Number'+i);
+        $scope.items.push({label:'Item Number'+i, height: Math.round(Math.random()*50) });
       } 
     });
     
@@ -31,7 +31,7 @@
         var elapsedMs = (new Date()-start);
         var elapsed = (elapsedMs/1000).toFixed(2);
         $('#elapsed').html(elapsed);
-        $('#elapsedper').html((elapsedMs/(rowCount/100)).toFixed());
+        $('#elapsedper').html((elapsedMs/((rowCount*2)/100)).toFixed());
       });    
     }, 500);
     
@@ -50,7 +50,45 @@
   <style>
     .content {
       opacity: 0;
+	  position: relative;
     }
+	
+	.overflow {
+		position: absolute;
+		height: 400px;
+		width: 300px;
+		overflow-y: auto;
+		overflow-x: hidden;
+		border: 1px solid black;
+		background: white;
+	}
+	
+	.overflow li {
+		min-height: 20px;
+		margin-left: 25px;
+	}
+	
+	.overflow li:nth-child(odd) {
+		background-color: #f0f0e0;
+	}
+	
+	.overflow li:after {
+		content: ' ';
+		border: 1px solid #eeeeee;
+		position: absolute;
+		left: -60px;
+		right: 0;
+		top: 0px;
+	}	
+	
+	.overflow2 {
+		left: 350px;
+		transform: scale3d(1,-1,1);
+	}
+	
+	.overflow2 li {
+		transform: scale3d(1,-1,1);
+	}
   </style>
 </head>
 
@@ -58,17 +96,22 @@
   <h1>Test app for ng-repeat-infinity</h1>
   <a href="https://github.com/RobertjanTuit/ng-repeat-infinity" class="small" target="_blank">https://github.com/RobertjanTuit/ng-repeat-infinity</a>
   <div class="loading">
-    <br/> Loading app with 10000 ng-repeat rows...
+    <br/> Loading app with 2 x 10000 ng-repeat rows...
   </div>
   <div class="content">
     <div class="small">Last reload: <span id='reloaded'></span> seconds ago.</div>
     <br/>
-    <div class="small">Angular app rendering 10000 rows took: <span id='elapsed'></span> seconds. <span id='elapsedper'></span>ms per 100 rows</div>
+    <div class="small">Angular app rendering 2 x 10000 rows took: <span id='elapsed'></span> seconds. <span id='elapsedper'></span>ms per 100 rows</div>
     <br/>
     <br/> List numbers test:
-    <ol style="height:100%;overflow: auto;">
+    <ol class="overflow overflow1">
       <li ng-repeat-infinity="item in items">
-        <div>{{ item }}</div>
+        <div style="height:{{ item.height }}px">{{ item.label }}</div>
+      </li>
+    </ol>
+    <ol class="overflow overflow2">
+      <li ng-repeat-infinity="item in items">
+        <div style="height:{{ item.height }}px">{{ item.label }}</div>
       </li>
     </ol>
   </div>
