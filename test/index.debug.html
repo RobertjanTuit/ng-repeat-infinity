@@ -20,7 +20,7 @@
       $scope.items = [];
       for(var i=0; i < rowCount; i++)
       {
-        $scope.items.push({label:'Item Number'+i, height: Math.round(Math.random()*50) });
+        $scope.items.push({label:'Item Number'+i, height: Math.round(Math.random()*75), activeHeight:Math.round(Math.random()*200), clicked: false });
       } 
     });
     
@@ -72,14 +72,17 @@
 		background-color: #f0f0e0;
 	}
 	
-	.overflow li:after {
-		content: ' ';
-		border: 1px solid #eeeeee;
-		position: absolute;
-		left: -60px;
-		right: 0;
-		top: 0px;
-	}	
+	.overflow li div {
+		cursor: pointer;
+	}
+	
+	.overflow li div:hover {
+		background: #dddddd;
+	}
+	div.active {
+		background: #444444;
+		color: white;
+	}
 	
 	.overflow2 {
 		left: 350px;
@@ -106,12 +109,12 @@
     <br/> List numbers test:
     <ol class="overflow overflow1">
       <li ng-repeat-infinity="item in items">
-        <div style="height:{{ item.height }}px">{{ item.label }}</div>
+        <div ng-class="{ 'active': item.clicked }" style="height:{{ item.clicked ? (item.height + 20 + item.activeHeight) : item.height }}px" ng-click="item.clicked = !item.clicked">{{ item.label }}</div>
       </li>
     </ol>
     <ol class="overflow overflow2">
       <li ng-repeat-infinity="item in items">
-        <div style="height:{{ item.height }}px">{{ item.label }}</div>
+        <div ng-class="{ 'active': item.clicked }" style="height:{{ item.clicked ? (item.height + 20 + item.activeHeight) : item.height }}px" ng-click="item.clicked = !item.clicked">{{ item.label }}</div>
       </li>
     </ol>
   </div>
